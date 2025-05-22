@@ -15,6 +15,27 @@
 * **入力**：X, Y, Z の3軸加速度データ（例：WISDM, PAMAP2, RealWorld など）
 * **出力**：活動ラベル（例：歩行、座位、立位など）
 
+## LinearAttentionTransformerによる二段階学習
+
+本リポジトリでは、時系列データに対して高効率な処理を実現する LinearAttentionTransformer を用いた二段階学習を実装している。
+
+### 第1段階：自己教師あり事前学習
+
+* **スクリプト**：`LinearAttentionTransformer/pretrain/train.py`
+* **使用データ**：Capture-24（約150名の被験者の加速度データ）
+* **目的**：人間の活動に関する時系列特徴をラベルなしで事前学習し、Transformerに汎化的な表現力を獲得させること
+* **補足**：本リポジトリには、事前学習済みモデルの重みファイルは含まれていない
+
+### 第2段階：下流タスクへのファインチューニング
+
+* **スクリプト**：`LinearAttentionTransformer/pretrain/adl.ipynb`, `pamap.ipynb` など
+* **使用データ**：
+
+  * ADL（Activities of Daily Living）タスク
+  * PAMAP2 データセット
+* **目的**：事前学習済みモデルを初期化に用いることで、少量のラベル付きデータでも高い分類性能を実現する
+
+
 ## 実行方法
 
 ### 1. リポジトリのクローン
@@ -28,9 +49,9 @@ cd transformer-timeseries-lab
 
 各モデルフォルダ内のノートブックまたはスクリプトを参照：
 
-* `BERT/bert_finetune.ipynb`
+* `BERT/adl_bert.ipynb`
 * `LinearAttentionTransformer/train.py`
-* `Roberta/wisdm_robert.ipynb` など
+* `Roberta/wisdm_roberta.ipynb` など
 
 
 ##  補足事項
