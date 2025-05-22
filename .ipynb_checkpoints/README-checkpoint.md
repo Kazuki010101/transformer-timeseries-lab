@@ -35,7 +35,7 @@ cd transformer-timeseries-lab
 
 ##  補足事項
 
-* 学習用データは含まれていません。各自で準備してください。
+* 学習用データは含まれていません。
 * 使用データセット：Oxford Wearable SHL Dataset
 * モデルは `[バッチサイズ, 時系列長, 3軸 (X, Y, Z)]` のテンソルを前提としています。
 
