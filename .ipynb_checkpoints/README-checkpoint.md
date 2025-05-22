@@ -39,10 +39,10 @@ cd transformer-timeseries-lab
 * 使用データセット：Oxford Wearable SHL Dataset
 * モデルは `[バッチサイズ, 時系列長, 3軸 (X, Y, Z)]` のテンソルを前提としています。
 
-## 👨‍💻 開発者
+## 開発者
 
 Kazuki Okahashi（[@Kazuki010101](https://github.com/Kazuki010101)）
 
-## 📄 ライセンス
+## ライセンス
 
 MIT License
